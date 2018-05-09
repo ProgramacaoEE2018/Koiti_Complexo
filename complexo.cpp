@@ -17,19 +17,19 @@ public:
         return Complexo(real, (-1)*im);
     }
 
-    Complexo Diferenca(Complexo omega){
+    Complexo operator-(const Complexo& omega){
         return Complexo(real - omega.real, im - omega.im);
     }
 
-    Complexo Soma(Complexo omega){
+    Complexo operator+(const Complexo& omega){
         return Complexo(real + omega.real, im + omega.im);
     }
 
-    Complexo Produto(Complexo omega){
+    Complexo operator*(const Complexo& omega){
         return Complexo(real*omega.real-im*omega.im, real*omega.im+im*omega.real);
     }
 
-    Complexo Divisao(Complexo omega){
+    Complexo operator/(const Complexo& omega){
         return Complexo((real*omega.real+im*omega.im)/(omega.real*omega.real+omega.im*omega.im), (im*omega.real-real*omega.im)/(omega.real*omega.real+omega.im*omega.im));
     }
 
@@ -50,15 +50,15 @@ int main()
 
      printf("%f\n", z.Modulo());
 
-     Complexo sum = z.Soma(z1);
+     Complexo sum = z+z1;
      sum.imprimir_cartesiana();
 
-     Complexo dif = z.Diferenca(z1);
+     Complexo dif = z-z1;
      dif.imprimir_cartesiana();
 
-     Complexo prod = z.Produto(z1);
+     Complexo prod = z*z1;
      prod.imprimir_cartesiana();
 
-     Complexo div = z.Divisao(z1);
+     Complexo div = z/z1;
      div.imprimir_cartesiana();
 }
